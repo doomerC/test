@@ -1,0 +1,155 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background: url("./DALL·E 2025-01-19 20.01.13 - A Minecraft-style background featuring a sunset over a pixelated forest with a wooden house. The scene is warm and atmospheric, capturing the adventur.webp")
+    no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: rgba(26, 26, 26, 0.9);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box; /* Ensure padding doesn't affect the layout */
+}
+
+header img {
+  height: 50px; /* Keep the logo size consistent */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffd700;
+  transform: scale(1.1);
+}
+
+/* Main Styling */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+/* Hero Content Styling */
+.hero-content {
+  text-align: center;
+  background-color: rgba(43, 43, 43, 0.8);
+  padding: 100px 30px;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 90%;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  color: #ffd700;
+  margin: 20px 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-content .btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #168b4c;
+  border: solid 2px black;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Minecraft Regular", sans-serif;
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration: none; /* Removed underline */
+  transition: background-color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+  background-color: #1eab5c;
+  transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 15px 0;
+  color: #bbb;
+  width: 100%;
+}
+
+footer p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 5%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  .hero-content {
+    padding: 60px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .hero-content .btn {
+    font-size: 18px;
+    padding: 12px;
+  }
+}
