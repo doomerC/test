@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org//face/minecraftia"
+      type="text/css"
+    />
+    <title>Minecraft</title>
+    <link rel="stylesheet" href="i.css" />
+    <style>
+      /* Custom checkbox styles */
+      .checkbox-wrapper-23 *:after,
+      .checkbox-wrapper-23 *:before {
+        box-sizing: border-box;
+      }
+
+      .checkbox-wrapper-23 input {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .checkbox-wrapper-23 input:checked + label svg path {
+        stroke-dashoffset: 0;
+      }
+
+      .checkbox-wrapper-23 input:focus + label {
+        transform: scale(1.03);
+      }
+
+      .checkbox-wrapper-23 input + label {
+        display: block;
+        border: 2px solid rgb(232, 225, 225);
+        width: var(--size);
+        height: var(--size);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .checkbox-wrapper-23 input + label:active {
+        transform: scale(1.05);
+        border-radius: 12px;
+      }
+
+      .checkbox-wrapper-23 input + label svg {
+        pointer-events: none;
+        padding: 5%;
+      }
+
+      .checkbox-wrapper-23 input + label svg path {
+        fill: none;
+        stroke: rgb(81, 226, 68);
+        stroke-width: 4px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 101;
+        transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+      }
+
+      /* Styling for the form */
+      .login {
+        width: 80%; /* Reduced width */
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .level-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .level-options .option {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+      }
+
+      .level-options .checkbox-wrapper-23 {
+        margin-right: 10px;
+      }
+
+      #otherText {
+        display: none;
+        margin-top: 10px;
+      }
+
+      /* Ensure footer stays at the bottom */
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      footer {
+        margin-top: auto;
+      }
+
+      /* Updated styles for confirmation box */
+      #confirmationBox {
+        display: none;
+        background: #f2f9ff; /* Light blue background to match form */
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        width: 80%;
+        max-width: 600px;
+        margin: 20px auto;
+        transition: all 0.3s ease;
+      }
+
+      #confirmationBox svg {
+        width: 70px;
+        height: 70px;
+        color: #4caf50; /* Green tick color */
+      }
+
+      #confirmationBox h2 {
+        margin-top: 20px;
+        color: #4caf50;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      #confirmationBox p {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      /* Make the tick icon grow slightly on hover */
+      #confirmationBox:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Animation for the tick */
+      svg {
+        width: 100%;
+      }
+
+      .tick {
+        transform-origin: center;
+        animation: grow 0.8s ease-in-out forwards;
+      }
+
+      @keyframes grow {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        60% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .circle {
+        transform-origin: center;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+        animation: dash 1s linear;
+      }
+
+      @keyframes dash {
+        from {
+          stroke-dashoffset: 1000;
+          opacity: 0;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img
+          class="logo"
+          src="./Capture_d_écran_2025-01-20_160848-removebg-preview.png"
+          alt="logo"
+        />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./home.html">Home</a></li>
+          <li><a href="./aboute.html">About event</a></li>
+          <li><a href="./aboutus.html">About us</a></li>
+          <li><a href="./i.html">Form</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main style="flex-grow: 1">
+      <div class="login" id="formContainer">
+        <form id="registerForm">
+          <label for="fullname">Full Name</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            required
+            placeholder="Enter your full name"
+            class="input"
+          />
+
+          <label for="number">Phone Number</label>
+          <input
+            type="tel"
+            id="number"
+            name="number"
+            required
+            placeholder="Enter your phone number"
+            class="input"
+          />
+
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            class="input"
+          />
+
+          <fieldset class="level-section">
+            <legend>Level</legend>
+            <div class="level-options">
+              <div class="option">
+                <div class="checkbox-wrapper-23">
+                  <input type="checkbox" id="1st" name="level" value="1st" />
+                  <label for="1st" style="--size: 30px">
+                    <svg viewBox="0 0 50 50">
+                      <path d="M5 30 L 20 45 L 45 5"></path>
+                    </svg>
+                  </label>
+                </div>
+                <label for="1st">1st</label>
+              </div>
+
+              <div class="option">
+                <div class="checkbox-wrapper-23">
+                  <input type="checkbox" id="2nd" name="level" value="2nd" />
+                  <label for="2nd" style="--size: 30px">
+                    <svg viewBox="0 0 50 50">
+                      <path d="M5 30 L 20 45 L 45 5"></path>
+                    </svg>
+                  </label>
+                </div>
+                <label for="2nd">2nd</label>
+              </div>
+
+              <div class="option">
+                <div class="checkbox-wrapper-23">
+                  <input type="checkbox" id="3rd" name="level" value="3rd" />
+                  <label for="3rd" style="--size: 30px">
+                    <svg viewBox="0 0 50 50">
+                      <path d="M5 30 L 20 45 L 45 5"></path>
+                    </svg>
+                  </label>
+                </div>
+                <label for="3rd">3rd</label>
+              </div>
+
+              <div class="option">
+                <div class="checkbox-wrapper-23">
+                  <input type="checkbox" id="4th" name="level" value="4th" />
+                  <label for="4th" style="--size: 30px">
+                    <svg viewBox="0 0 50 50">
+                      <path d="M5 30 L 20 45 L 45 5"></path>
+                    </svg>
+                  </label>
+                </div>
+                <label for="4th">4th</label>
+              </div>
+
+              <div class="option">
+                <div class="checkbox-wrapper-23">
+                  <input
+                    type="checkbox"
+                    id="other"
+                    name="level"
+                    value="other"
+                  />
+                  <label for="other" style="--size: 30px">
+                    <svg viewBox="0 0 50 50">
+                      <path d="M5 30 L 20 45 L 45 5"></path>
+                    </svg>
+                  </label>
+                </div>
+                <label for="other">Other</label>
+              </div>
+            </div>
+            <input
+              type="text"
+              id="otherText"
+              name="otherText"
+              placeholder="Specify your level"
+            />
+          </fieldset>
+
+          <div id="specialtyContainer" style="display: none">
+            <label for="specialty">Specialty</label>
+            <select id="specialty" name="specialty">
+              <option value="cs">Computer Science</option>
+              <option value="lit">Literature</option>
+              <option value="eco">Economics</option>
+              <option value="tech">Technology</option>
+              <option value="math">Mathematics</option>
+              <option value="sci">Sciences</option>
+            </select>
+          </div>
+
+          <label for="club">Club</label>
+          <select id="club" name="club" required>
+            <option value="mtc_lakc">MTC LAKC</option>
+            <option value="mtc_lirs">MTC LIRS</option>
+            <option value="mtc_lhay">MTC Lhay</option>
+            <option value="mtc_lbs">MTC LBS</option>
+            <option value="mtc_lps">MTC LPS</option>
+            <option value="mtc_lhc">MTC LHC</option>
+          </select>
+
+          <button type="submit" class="btn">Register</button>
+        </form>
+      </div>
+
+      <!-- Updated Confirmation box -->
+      <div id="confirmationBox">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="tick"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="green"
+            stroke-width="2"
+            fill="none"
+            class="circle"
+          />
+          <path
+            d="M6 12l4 4 8-8"
+            stroke="green"
+            stroke-width="2"
+            fill="none"
+          ></path>
+        </svg>
+        <h2>Registration Successful!</h2>
+        <p>Check your email and contact us for payment.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Nada Bennour. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // JavaScript to toggle specialty input and checkbox conditions
+      document.querySelectorAll('input[name="level"]').forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          // Uncheck other checkboxes if one is selected
+          document.querySelectorAll('input[name="level"]').forEach((box) => {
+            if (box !== this) {
+              box.checked = false;
+            }
+          });
+
+          // Show or hide the specialty input based on selected checkbox
+          const specialtyContainer =
+            document.getElementById("specialtyContainer");
+          const otherText = document.getElementById("otherText");
+
+          // Show specialty input for specific checkboxes
+          if (
+            this.checked &&
+            (this.value === "2nd" ||
+              this.value === "3rd" ||
+              this.value === "4th")
+          ) {
+            specialtyContainer.style.display = "block";
+          } else {
+            specialtyContainer.style.display = "none";
+          }
+
+          // Show the "other" text box only if "other" is checked
+          otherText.style.display =
+            this.checked && this.value === "other" ? "block" : "none";
+        });
+      });
+
+      // Handle form submission
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Show confirmation box
+          document.getElementById("confirmationBox").style.display = "block";
+
+          // Hide form
+          document.getElementById("formContainer").style.display = "none";
+        });
+    </script>
+  </body>
+</html>
